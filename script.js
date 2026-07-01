@@ -11,8 +11,8 @@
    your Row Level Security policies allow. See README.md.
    ========================================================= */
 
-const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://oovlbtdhuhvsrafzuzuc.supabase.co/rest/v1/';
+const SUPABASE_ANON_KEY = 'sb_secret_N_14l7eu6meAY_JSYu8EnA_bBsch1mX';
 
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
