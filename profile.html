@@ -7,11 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script>
-  if (!localStorage.getItem('stockease_session')) {
-    window.location.replace('login.html');
-  }
-</script>
 </head>
 <body>
 
@@ -35,6 +30,12 @@
 </nav>
 
 <main>
+
+<div id="auth-loading" style="padding:80px 24px;text-align:center;color:var(--ink-faint);font-family:var(--font-mono);font-size:0.85rem;">
+  Checking your session…
+</div>
+
+<div id="protected-content" class="hidden">
 
   <div class="page-head">
     <div class="page-head-inner">
@@ -71,12 +72,14 @@
 
       <div class="panel danger-zone">
         <h3>Danger zone</h3>
-        <p style="margin-bottom:16px;">Deleting your account permanently removes your login and all inventory data stored in this browser.</p>
-        <button id="profile-delete-btn" class="btn btn-danger">Delete Account</button>
+        <p style="margin-bottom:16px;">This clears your inventory data and signs you out. Fully deleting the login account itself needs a server-side step — see README.md.</p>
+        <button id="profile-delete-btn" class="btn btn-danger">Delete Account Data</button>
       </div>
     </div>
 
   </div>
+
+</div>
 
 </main>
 
@@ -87,6 +90,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
