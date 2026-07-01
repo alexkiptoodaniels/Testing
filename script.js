@@ -12,7 +12,7 @@
    ========================================================= */
 
 const SUPABASE_URL = 'https://oovlbtdhuhvsrafzuzuc.supabase.co/rest/v1/';
-const SUPABASE_ANON_KEY = 'sb_secret_N_14l7eu6meAY_JSYu8EnA_bBsch1mX';
+const SUPABASE_ANON_KEY = 'anonymous-key-goes-here'; // replace with your anon key
 
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
