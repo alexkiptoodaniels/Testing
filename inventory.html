@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory — StockEase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Guard this page before it paints: bounce to login if no session.
+  if (!localStorage.getItem('stockease_session')) {
+    window.location.replace('login.html');
+  }
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">SE</span>
+      StockEase
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="inventory.html" class="nav-link" data-auth="in">Inventory</a>
+      <a href="profile.html" class="nav-link" data-auth="in">Profile</a>
+      <a href="signup.html" class="nav-link" data-auth="out">Sign Up</a>
+    </div>
+    <div class="nav-actions">
+      <span id="nav-user-name" class="mono" data-auth="in" style="font-size:0.85rem;color:var(--ink-soft);"></span>
+      <a href="login.html" id="nav-auth-btn" class="btn btn-primary btn-sm">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-head">
+    <div class="page-head-inner">
+      <div>
+        <span class="eyebrow">// Your ledger</span>
+        <h1>Inventory</h1>
+      </div>
+      <button id="add-item-btn" class="btn btn-amber">+ Add Item</button>
+    </div>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-box">
+      <span class="stat-label">Total Items</span>
+      <span class="stat-value" id="stat-total">0</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-label">Total Units</span>
+      <span class="stat-value" id="stat-units">0</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-label">Needs Reorder</span>
+      <span class="stat-value" id="stat-low">0</span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="inv-search" class="search-input" placeholder="Search by name, SKU, or category…">
+  </div>
+
+  <div class="table-wrap">
+    <div id="inv-table-wrap">
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="inv-table-body"></tbody>
+      </table>
+    </div>
+    <div id="inv-empty" class="empty-state hidden">
+      <h3>No items yet</h3>
+      <p>Add your first item to start the ledger.</p>
+      <button class="btn btn-amber" onclick="document.getElementById('add-item-btn').click()">+ Add Item</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Add / Edit item modal -->
+<div class="modal-overlay" id="item-modal">
+  <div class="modal-box">
+    <h2 id="modal-title">Add Item</h2>
+    <form id="item-form" novalidate>
+      <div class="field">
+        <label for="field-name">Item name</label>
+        <input type="text" id="field-name" placeholder="e.g. Ceramic Mug, 12oz" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="field-sku">SKU</label>
+          <input type="text" id="field-sku" placeholder="MUG-CER-012" required>
+        </div>
+        <div class="field">
+          <label for="field-category">Category</label>
+          <input type="text" id="field-category" placeholder="Homeware">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="field-quantity">Quantity</label>
+          <input type="number" id="field-quantity" min="0" step="1" placeholder="0" required>
+        </div>
+        <div class="field">
+          <label for="field-reorder">Reorder level</label>
+          <input type="number" id="field-reorder" min="0" step="1" placeholder="0" required>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="modal-cancel" class="btn btn-ghost">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Item</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-note">STOCKEASE — INVENTORY LEDGER, SIMPLIFIED</p>
+    <p class="footer-note">&copy; 2026 StockEase</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

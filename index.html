@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockEase — Know what's on the shelf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">SE</span>
+      StockEase
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="inventory.html" class="nav-link" data-auth="in">Inventory</a>
+      <a href="profile.html" class="nav-link" data-auth="in">Profile</a>
+      <a href="signup.html" class="nav-link" data-auth="out">Sign Up</a>
+    </div>
+    <div class="nav-actions">
+      <span id="nav-user-name" class="mono" data-auth="in" style="font-size:0.85rem;color:var(--ink-soft);"></span>
+      <a href="login.html" id="nav-auth-btn" class="btn btn-primary btn-sm">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">// Stockroom, simplified</span>
+        <h1>Know what's on the shelf.<br>Every time.</h1>
+        <p class="hero-sub">StockEase is a lightweight inventory ledger for small teams — track quantities, spot low stock before it's a problem, and keep everyone looking at the same numbers.</p>
+        <div class="hero-cta">
+          <a href="signup.html" class="btn btn-amber">Get Started Free</a>
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+        </div>
+      </div>
+      <div class="ledger-card" aria-hidden="true">
+        <div class="ledger-card-header">
+          <span>Current Stock</span>
+          <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="mock-row">
+          <div><div class="item-name">Kraft Shipping Boxes</div><div class="item-sku">BOX-M-001</div></div>
+          <div class="stock-gauge"><div class="stock-gauge-track"><div class="stock-gauge-fill status-ok" style="width:82%"></div></div></div>
+          <span class="badge badge-ok">84 units</span>
+        </div>
+        <div class="mock-row">
+          <div><div class="item-name">Packing Tape Rolls</div><div class="item-sku">TPE-CLR-014</div></div>
+          <div class="stock-gauge"><div class="stock-gauge-track"><div class="stock-gauge-fill status-low" style="width:30%"></div></div></div>
+          <span class="badge badge-low">12 units</span>
+        </div>
+        <div class="mock-row">
+          <div><div class="item-name">Cotton Tee — Black, L</div><div class="item-sku">APP-TSH-BLK-L</div></div>
+          <div class="stock-gauge"><div class="stock-gauge-track"><div class="stock-gauge-fill status-critical" style="width:14%"></div></div></div>
+          <span class="badge badge-critical">5 units</span>
+        </div>
+        <div class="mock-row">
+          <div><div class="item-name">Ceramic Mug, 12oz</div><div class="item-sku">MUG-CER-012</div></div>
+          <div class="stock-gauge"><div class="stock-gauge-track"><div class="stock-gauge-fill status-ok" style="width:92%"></div></div></div>
+          <span class="badge badge-ok">46 units</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">// Why StockEase</span>
+        <h2>Built for the people counting boxes, not writing SQL.</h2>
+        <p>No spreadsheets to babysit, no software to install. Sign up, add what you've got, and StockEase keeps a running ledger you can check from anywhere.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+          </div>
+          <h3>Track stock levels</h3>
+          <p>Every item gets a live quantity and a stock gauge, so you can tell what's healthy at a glance — no digging through columns.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          </div>
+          <h3>Get reorder alerts</h3>
+          <p>Set a reorder threshold per item. When quantity dips below it, StockEase flags it so you never run out mid-order.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+          </div>
+          <h3>One place for your team</h3>
+          <p>A single account, a single ledger. Everyone checks the same numbers instead of five different sticky notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Start your ledger in under a minute.</h2>
+    <p>Free to use. No credit card, no install — just an email and a password.</p>
+    <div class="hero-cta">
+      <a href="signup.html" class="btn btn-amber">Create Free Account</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-note">STOCKEASE — INVENTORY LEDGER, SIMPLIFIED</p>
+    <p class="footer-note">&copy; 2026 StockEase</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — StockEase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  if (!localStorage.getItem('stockease_session')) {
+    window.location.replace('login.html');
+  }
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">SE</span>
+      StockEase
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="inventory.html" class="nav-link" data-auth="in">Inventory</a>
+      <a href="profile.html" class="nav-link" data-auth="in">Profile</a>
+      <a href="signup.html" class="nav-link" data-auth="out">Sign Up</a>
+    </div>
+    <div class="nav-actions">
+      <span id="nav-user-name" class="mono" data-auth="in" style="font-size:0.85rem;color:var(--ink-soft);"></span>
+      <a href="login.html" id="nav-auth-btn" class="btn btn-primary btn-sm">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-head">
+    <div class="page-head-inner">
+      <div>
+        <span class="eyebrow">// Account</span>
+        <h1>Profile</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-grid">
+
+    <div class="profile-card">
+      <div class="profile-avatar" id="profile-avatar-initials">--</div>
+      <h3 id="profile-name">—</h3>
+      <p class="profile-email" id="profile-email">—</p>
+      <button id="profile-logout-btn" class="btn btn-outline btn-block">Sign Out</button>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h3>Account details</h3>
+        <div class="panel-row"><span class="k">Full name</span><span class="v" id="profile-name-2">—</span></div>
+        <div class="panel-row"><span class="k">Email</span><span class="v mono" id="profile-email-2">—</span></div>
+        <div class="panel-row"><span class="k">Member since</span><span class="v" id="profile-joined">—</span></div>
+      </div>
+
+      <div class="panel">
+        <h3>Ledger summary</h3>
+        <div class="panel-row"><span class="k">Items tracked</span><span class="v mono" id="profile-item-count">0</span></div>
+        <div class="panel-row"><span class="k">Items needing reorder</span><span class="v mono" id="profile-low-count">0</span></div>
+        <div class="panel-row"><span class="k">Go to</span><span class="v"><a href="inventory.html">Open Inventory →</a></span></div>
+      </div>
+
+      <div class="panel danger-zone">
+        <h3>Danger zone</h3>
+        <p style="margin-bottom:16px;">Deleting your account permanently removes your login and all inventory data stored in this browser.</p>
+        <button id="profile-delete-btn" class="btn btn-danger">Delete Account</button>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-note">STOCKEASE — INVENTORY LEDGER, SIMPLIFIED</p>
+    <p class="footer-note">&copy; 2026 StockEase</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
